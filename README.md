@@ -1,30 +1,31 @@
-# ProtaVision: Delving into Protein Structures and Functions
-## Exploring Protein Structures and Properties: A Introduction Bioinformatics Analysis
-### Collaborators: Nichelle Sequeira & Aurélie Masson
-#### Practical Programming in Chemistry @ EPFL
 ![Project Logo](assets/banner.png)
 
 ![Coverage Status](assets/coverage-badge.svg)
 
 <h1 align="center">
-ProtaVision
+ProtaVision: Delving into Protein Structures and Functions
 </h1>
 
 <br>
 
+## Exploring Protein Structures and Properties: A Introduction Bioinformatics Analysis
+### Collaborators: Nichelle Sequeira & Aurélie Masson
+#### Practical Programming in Chemistry @ EPFL
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [License](#license)
+- 🖊️[Introduction](#introduction)
+- 🎨[Features](#features)
+- 🔥[Usage](#usage)
+- 👩‍💻[Installation](#installation)
+- 🛠️[Development installation](#development_installation)
+- 📜[License](#license)
 
-## Introduction
+## 🖊️Introduction
 
 This project is part of the Practical Programming in Chemistry course given at EPFL (spring semester 2024), with aim to familiriaze ourselves with using GitHub and collaborating on a programming project together.
 
-## Features
+## 🎨Features
 
 This package enables users to input two proteins from a dictionary and determine the number of matching amino acids, along with the indices of those that do not match. In essence, it facilitates sequence alignment, a fundamental principle in bioinformatics. 
 ### Main Features
@@ -99,5 +100,9 @@ To install the package, run
 (conda_env) $ tox
 ```
 
+## 📜 License
+This project is licensed under the MIT License. The MIT License is a permissive open source license that allows you to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, subject to certain conditions.
 
+You are provided with a copy of the MIT License in the [LICENSE](LICENSE) file accompanying this repository. By using, copying, modifying, distributing, or selling this software, you agree to the terms and conditions of the MIT License.
 
+For the full text of the MIT License, please see the [LICENSE](LICENSE) file.
