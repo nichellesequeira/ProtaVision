@@ -1,3 +1,7 @@
+# ProtaVision: Delving into Protein Structures and Functions
+## Exploring Protein Structures and Properties: A Introduction Bioinformatics Analysis
+### Collaborators: Nichelle Sequeira & Aurélie Masson
+#### Practical Programming in Chemistry @ EPFL
 ![Project Logo](assets/banner.png)
 
 ![Coverage Status](assets/coverage-badge.svg)
@@ -9,7 +13,27 @@ ProtaVision
 <br>
 
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [License](#license)
+
+## Introduction
+
 This project is part of the Practical Programming in Chemistry course given at EPFL (spring semester 2024), with aim to familiriaze ourselves with using GitHub and collaborating on a programming project together.
+
+## Features
+
+This package enables users to input two proteins from a dictionary and determine the number of matching amino acids, along with the indices of those that do not match. In essence, it facilitates sequence alignment, a fundamental principle in bioinformatics. 
+### Main Features
+
+- **Sequence Alignment**: Efficiently compare two protein sequences to identify matching and non-matching amino acids.
+- **Amino Acid Analysis**: Analyze properties of amino acids, such as molecular weight and composition.
+- **Substitutions Conservatrices**: Explore amino acid substitutions that preserve biochemical properties.
+- **Protein Visualization**: Visualize protein structures in 3D using PDB codes.
+- **Gap Method for Sequence Alignment**: Implement a gap-based sequence alignment method.
 
 ## 🔥 Usage
 
