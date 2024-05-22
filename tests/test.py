@@ -2,7 +2,8 @@ import pytest
 import functions
 from functions import get_protein_sequence
 from Bio import ExPASy, SeqIO
-from unittest.mock import patch, MagicMock
+
+
 
 def test1_get_protein_sequence():
     protein_name = 'MYG_HUMAN'
