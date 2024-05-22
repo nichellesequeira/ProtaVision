@@ -55,23 +55,23 @@ def compare_sequences(sequence1, sequence2):
         If the lengths of the sequences are not equal.
     """
     if len(sequence1) != len(sequence2):
-        print("CAREFUL! The lengths of the sequences are not equal. This code only runs until the shortest sequences is done comparing with the longer one.")    
+        raise ValueError("The lengths of the sequences are not equal.")    
     
-    # Créer une liste pour stocker les détails des différences
+    # Create a list to store details of differences
     differences = []
     n = 0
     
-    # Parcourir les deux séquences et trouver les différences
+    # Go through the two sequences and find the differences
     for i in range(0, min(len(sequence1), len(sequence2))):
         if sequence1[i] != sequence2[i]:
-            # Ajouter les détails de la différence à la liste
+            # Add difference details to the list
             differences.append([i, sequence1[i], sequence2[i]])
             n += 1
 
     print(f"The total number of amino acids that don't match is: {n}")
     print(f"The total number of amino acids that match is: {len(sequence1) - n}")
     
-    # Créer un DataFrame pandas à partir de la liste de différences
+    # Create a pandas DataFrame from the difference list
     if n == 0:
         return pd.DataFrame()
     else:
@@ -195,6 +195,7 @@ def uniprot_to_pdb(uniprot_id):
 
 
 from Bio import pairwise2
+
 def calculate_alignment_details(sequence1, sequence2):
     """
     Calculate the alignment details between two sequences.
@@ -204,19 +205,19 @@ def calculate_alignment_details(sequence1, sequence2):
         sequence2 (str): The second sequence.
     
     Returns:
-        tuple: A tuple containing the aligned sequences, alignment score, start and end positions, and number of matches.
+        tuple: A tuple containing the aligned sequences, start and end positions, and number of matches.
     """
     # Perform global alignment
     alignments = pairwise2.align.globalxx(sequence1, sequence2)
     
     # Extract alignment details from the first alignment (assumes only one alignment is found)
     alignment = alignments[0]
-    sequence1_aligned, sequence2_aligned, score, begin, end = alignment
+    sequence1_aligned, sequence2_aligned, _, begin, end = alignment
     
     # Count matches
     num_matches = sum(a == b for a, b in zip(sequence1_aligned, sequence2_aligned))
     
-    return sequence1_aligned, sequence2_aligned, score, begin, end, num_matches
+    return sequence1_aligned, sequence2_aligned, begin, end, num_matches
 
 
 
