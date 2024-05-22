@@ -1,0 +1,22 @@
+[
+    {"name": "Alanine", "single_letter": "A", "three_letter": "Ala", "smiles": "CC(=O)N"},
+    {"name": "Arginine", "single_letter": "R", "three_letter": "Arg", "smiles": "NC(CCNC(=N)N)C(=N)N"},
+    {"name": "Asparagine", "single_letter": "N", "three_letter": "Asn", "smiles": "CC(=O)N[C@@H](CCC(=O)O)C(N)=O"},
+    {"name": "Aspartic acid", "single_letter": "D", "three_letter": "Asp", "smiles": "CC(C(=O)O)C(N)=O"},
+    {"name": "Cysteine", "single_letter": "C", "three_letter": "Cys", "smiles": "C(C(=O)O)N"},
+    {"name": "Glutamine", "single_letter": "Q", "three_letter": "Gln", "smiles": "CC(=O)NC[C@H](C(=O)O)N"},
+    {"name": "Glutamic acid", "single_letter": "E", "three_letter": "Glu", "smiles": "C(CC(=O)O)C(C(=O)O)N"},
+    {"name": "Glycine", "single_letter": "G", "three_letter": "Gly", "smiles": "C(C(=O)O)N"},
+    {"name": "Histidine", "single_letter": "H", "three_letter": "His", "smiles": "C1=CNC=N1"},
+    {"name": "Isoleucine", "single_letter": "I", "three_letter": "Ile", "smiles": "CC[C@H](C)C(C)C"},
+    {"name": "Leucine", "single_letter": "L", "three_letter": "Leu", "smiles": "CC(C)CC(C(=O)O)N"},
+    {"name": "Lysine", "single_letter": "K", "three_letter": "Lys", "smiles": "NC(CCC(N)=O)C(=N)N"},
+    {"name": "Methionine", "single_letter": "M", "three_letter": "Met", "smiles": "CSCCC(C(=O)O)N"},
+    {"name": "Phenylalanine", "single_letter": "F", "three_letter": "Phe", "smiles": "c1ccc(cc1)CC(C(=O)O)N"},
+    {"name": "Proline", "single_letter": "P", "three_letter": "Pro", "smiles": "C1CC(NC1)C(=O)O"},
+    {"name": "Serine", "single_letter": "S", "three_letter": "Ser", "smiles": "C(C(C(=O)O)N)O"},
+    {"name": "Threonine", "single_letter": "T", "three_letter": "Thr", "smiles": "CC(C(C)O)C(=O)O"},
+    {"name": "Tryptophan", "single_letter": "W", "three_letter": "Trp", "smiles": "c1ccc2c(c1)c(c[nH]2)CC(C(=O)O)N"},
+    {"name": "Tyrosine", "single_letter": "Y", "three_letter": "Tyr", "smiles": "c1cc(ccc1CC(C(=O)O)N)O"},
+    {"name": "Valine", "single_letter": "V", "three_letter": "Val", "smiles": "CC(C)C(C(=O)O)N"}
+]
