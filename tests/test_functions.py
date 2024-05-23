@@ -184,10 +184,10 @@ def test_count_amino_acids_success():
     sequence = "MVHLTPEEK"
     counts = count_amino_acids(sequence)
     expected_counts = {
-        "hydrophobes": 3,
+        "hydrophobics": 3,
         "hydrophiles": 1,
-        "acides": 2,
-        "basiques":2
+        "acids": 2,
+        "bases":2
     }
     assert counts == expected_counts
 

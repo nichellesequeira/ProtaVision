@@ -320,7 +320,7 @@ def count_amino_acids(sequence):
             - "hydrophobes": Hydrophobic amino acids (A, V, I, L, M, F, Y, W)
             - "hydrophiles": Hydrophilic amino acids (N, C, Q, S, T)
             - "acides": Acidic amino acids (D, E)
-            - "basiques": Basic amino acids (K, R, H)
+            - "bases": Basic amino acids (K, R, H)
 
     Example:
         >>> count_amino_acids("MVHLTPEEK")
@@ -334,21 +334,21 @@ def count_amino_acids(sequence):
 
     # Counter initialization
     counts = {
-        "hydrophobes": 0,
+        "hydrophobics": 0,
         "hydrophiles": 0,
-        "acides": 0,
-        "basiques": 0
+        "acids": 0,
+        "bases": 0
     }
 
     # Amino acid sequence and count
     for aa in sequence.upper():
-        if aa in hydrophobes:
-            counts["hydrophobes"] += 1
+        if aa in hydrophobics:
+            counts["hydrophobics"] += 1
         elif aa in hydrophiles:
             counts["hydrophiles"] += 1
-        elif aa in acides:
-            counts["acides"] += 1
-        elif aa in basiques:
-            counts["basiques"] += 1
+        elif aa in acids:
+            counts["acids"] += 1
+        elif aa in bases:
+            counts["bases"] += 1
 
     return counts
