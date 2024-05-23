@@ -67,11 +67,11 @@ If you need jupyter lab, install it
 ```
 (protavision) $ pip install jupyterlab
 ```
-This package also uses mulptiple external package. To check if you have *biopython*, *py3Dmol*, *pandas*, & *matplotlib*, run:
+This package also uses mulptiple external package. Normally, these have already been installed. To check if you have *biopython*, *py3Dmol*, *pandas*, & *matplotlib*, run:
 ```
 (protavision) $ conda list
 ```
-If you don't have them, please install it by running:
+If you don't have them, please install it by running these commands in you terminal:
 ```
 (protavision) $ pip install biopython
 (protavision) $ pip install py3Dmol
