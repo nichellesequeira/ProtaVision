@@ -1,10 +1,7 @@
-import sys
-sys.path.insert(0, '../src/protavision')
 import pytest
-import functions
-from Bio import ExPASy, SeqIO
+from protavision.functions import get_protein_sequence, compare_sequences, proportion_amino_acid, count_conservative_substitutions, uniprot_to_pdb, calculate_alignment_details, calculate_number_of_gaps, count_matches_with_gap, count_amino_acids
+import matplotlib
 
-from functions import get_protein_sequence
 def test_get_protein_sequence_success_myoh():
     protein_name = 'MYG_HUMAN'
     expected_sequence = (
@@ -32,9 +29,6 @@ def test_get_protein_sequence_success_hemoh():
     result = get_protein_sequence(protein_name)
     assert result == expected_sequence
 
-import pandas as pd
-from functions import compare_sequences
-
 
 def test_compare_sequences_same_sequences():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
@@ -54,10 +48,6 @@ def test_compare_sequences_different_lengths():
     with pytest.raises(ValueError):
         compare_sequences(sequence1, sequence2)
 
-import matplotlib.pyplot as plt
-from Bio.SeqUtils.ProtParam import ProteinAnalysis
-from functions import proportion_amino_acid
-
 def test_proportion_amino_acid_valid_sequences():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
     sequence2 = "BCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -73,8 +63,6 @@ def test_proportion_amino_acid_valid_sequences_with_same_amino_acid():
         proportion_amino_acid(sequence1, sequence2)
     except Exception as e:
         pytest.fail(f"Unexpected exception: {e}")
-
-from functions import count_conservative_substitutions
 
 def test_count_conservative_substitutions_none():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
@@ -93,9 +81,6 @@ def test_count_conservative_substitutions_value2():
     assert count_conservative_substitutions(sequence1, sequence2) == 2
 
 
-from Bio import ExPASy, SwissProt
-from functions import uniprot_to_pdb
-
 def test_uniprot_to_pdb_valid_id_mygh():
     uniprot_id = "MYG_HUMAN"
     expected_pdb_id = "3RGK"  
@@ -105,8 +90,6 @@ def test_uniprot_to_pdb_valid_id_mygh():
     except Exception as e:
         pytest.fail(f"Unexpected exception: {e}")
 
-from Bio import pairwise2
-from functions import calculate_alignment_details
 
 def test_calculate_alignment_details_perfect_match():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
@@ -147,8 +130,6 @@ def test_calculate_alignment_details_different_lengths():
     assert end == len(sequence2)
     assert num_matches == len(sequence1)
 
-from functions import calculate_number_of_gaps
-
 def test_calculate_number_of_gaps_success():
     sequence_aligned = "A-CDEFGHIKL-MNPQRSTVWY"
     sequence_original = "ACDEFGHIKLMNPQRSTVWY"
@@ -163,7 +144,6 @@ def test_calculate_number_of_gaps_no_gaps():
     expected_num_gaps = 0
     assert num_gaps == expected_num_gaps
 
-from functions import count_matches_with_gap
 
 def test_count_matches_with_gap_no_gap():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
@@ -199,7 +179,6 @@ def test_count_matches_with_gap_start_position():
     assert count_matches_with_gap(sequence1, sequence2, gap_length, position) == expected_matches
 
 
-from functions import count_amino_acids
 
 def test_count_amino_acids_success():
     sequence = "MVHLTPEEK"

@@ -72,7 +72,7 @@ def main() :
 
     from Bio import pairwise2
     
-    sequence1_aligned, sequence2_aligned, score, begin, end, num_matches = functions.calculate_alignment_details(sequence1, sequence2)
+    sequence1_aligned, sequence2_aligned, begin, end, num_matches = functions.calculate_alignment_details(sequence1, sequence2)
     num_gaps_sequence1 = functions.calculate_number_of_gaps(sequence1_aligned, sequence1)
     num_gaps_sequence2 = functions.calculate_number_of_gaps(sequence2_aligned, sequence2)
     score = 10*num_matches - 25*num_gaps_sequence1
