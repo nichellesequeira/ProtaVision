@@ -13,6 +13,7 @@ ProtaVision: Delving into Protein Structures and Functions
 #### Practical Programming in Chemistry @ EPFL
 
 ## Table of Contents
+<<<<<<< HEAD
 
 - :pen:[Introduction](#pen-introduction)
 - 🎨[Features](#features)
@@ -20,6 +21,14 @@ ProtaVision: Delving into Protein Structures and Functions
 - :computer:[Installation](#computer-installation)
 - :hammer:[Development installation](#hammer-development_installation)
 - :paper:[License](#paper-license)
+=======
+- 🖊️[Introduction](#introduction)
+- 🎨[Features](#features)
+- 🔥[Usage](#usage)
+- 👩‍💻[Installation](#installation)
+- 🛠️[Development Installation](#development-installation)
+- 📜[License](#license)
+>>>>>>> dd1c4287b4189e770752e0987ea43aed95aa93f6
 
 ## :pen: Introduction
 
@@ -79,7 +88,11 @@ If you don't have them, please install it by running these commands in you termi
 (protavision) $ pip install matplotlib
 ```
 
+<<<<<<< HEAD
 ## :hammer: Development installation
+=======
+## 🛠️ Development Installation
+>>>>>>> dd1c4287b4189e770752e0987ea43aed95aa93f6
 
 Initialize Git (only for the first time). 
 
