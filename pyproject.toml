@@ -9,7 +9,7 @@ requires-python = ">=3.10"
 license = {file = "LICENSE"}
 description = "This project is part of the Practical Programming in Chemistry course given at EPFL (spring semester 2024), with aim to familiriaze ourselves with using GitHub and collaborating on a programming project together."
 dependencies = [
-    "matplotlip", 
+    "matplotlib", 
     "biopython", 
     "pandas", 
     "py3Dmol"
