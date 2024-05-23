@@ -14,7 +14,7 @@ ProtaVision: Delving into Protein Structures and Functions
 
 ## Table of Contents
 - :pen:[Introduction](#pen-introduction)
-- :paintbrush:[Features](#features)
+- :paintbrush:[Features](#paintbrush-features)
 - :fire:[Usage](#fire-usage)
 - :computer:[Installation](#computer-installation)
 - :hammer:[Development Installation](#hammer-development-installation)
