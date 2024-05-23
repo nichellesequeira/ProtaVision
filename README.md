@@ -13,12 +13,12 @@ ProtaVision: Delving into Protein Structures and Functions
 #### Practical Programming in Chemistry @ EPFL
 
 ## Table of Contents
-- 🖊️[Introduction] (#introduction)
-- 🎨[Features] (#features)
-- 🔥[Usage] (#usage)
-- 👩‍💻[Installation] (#installation)
-- 🛠️[Development Installation] (#development-installation)
-- 📜[License] (#license)
+- 🖊️[Introduction](#introduction)
+- 🎨[Features](#features)
+- 🔥[Usage](#usage)
+- 👩‍💻[Installation](#installation)
+- 🛠️[Development Installation](#development-installation)
+- 📜[License](#license)
 
 ## 🖊️Introduction
 
