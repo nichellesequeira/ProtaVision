@@ -13,19 +13,18 @@ ProtaVision: Delving into Protein Structures and Functions
 #### Practical Programming in Chemistry @ EPFL
 
 ## Table of Contents
+- :pen:[Introduction](#pen-introduction)
+- :paintbrush:[Features](#paintbrush-features)
+- :fire:[Usage](#fire-usage)
+- :computer:[Installation](#computer-installation)
+- :hammer:[Development Installation](#hammer-development-installation)
+- :scroll:[License](#scroll-license)
 
-- 🖊️[Introduction](#introduction)
-- 🎨[Features](#features)
-- 🔥[Usage](#usage)
-- 👩‍💻[Installation](#installation)
-- 🛠️[Development installation](#development_installation)
-- 📜[License](#license)
-
-## 🖊️Introduction
+## :pen: Introduction
 
 This project is part of the Practical Programming in Chemistry course given at EPFL (spring semester 2024), with aim to familiriaze ourselves with using GitHub and collaborating on a programming project together.
 
-## 🎨Features
+## :paintbrush: Features
 
 This package enables users to input two proteins from a dictionary and determine the number of matching amino acids, along with the indices of those that do not match. In essence, it facilitates sequence alignment, a fundamental principle in bioinformatics. 
 ### Main Features
@@ -36,7 +35,7 @@ This package enables users to input two proteins from a dictionary and determine
 - **Protein Visualization**: Visualize protein structures in 3D using PDB codes.
 - **Gap Method for Sequence Alignment**: Implement a gap-based sequence alignment method.
 
-## 🔥 Usage
+## :fire: Usage
 
 ```python
 from mypackage import main_func
@@ -49,7 +48,7 @@ This usage example shows how to quickly leverage the package's main functionalit
 After importing the `main_func` (to be renamed by you), you simply pass in your `data` and get the `result` (this is just an example, your package might have other inputs and outputs). 
 Short and sweet, but the real power lies in the detailed documentation.
 
-## 👩‍💻 Installation
+## :computer: Installation
 
 Create a new environment, you may also give the environment a different name. 
 
@@ -79,7 +78,7 @@ If you don't have them, please install it by running these commands in you termi
 (protavision) $ pip install matplotlib
 ```
 
-## 🛠️ Development installation
+## :hammer: Development installation
 
 Initialize Git (only for the first time). 
 
@@ -110,7 +109,7 @@ To install the package, run
 (conda_env) $ tox
 ```
 
-## 📜 License
+## :scroll: License
 This project is licensed under the MIT License. The MIT License is a permissive open source license that allows you to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, subject to certain conditions.
 
 You are provided with a copy of the MIT License in the [LICENSE](LICENSE) file accompanying this repository. By using, copying, modifying, distributing, or selling this software, you agree to the terms and conditions of the MIT License.
