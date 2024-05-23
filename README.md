@@ -14,12 +14,12 @@ ProtaVision: Delving into Protein Structures and Functions
 
 ## Table of Contents
 
-- 🖊️[Introduction](#introduction)
-- 🎨[Features](#features)
-- 🔥[Usage](#usage)
-- 👩‍💻[Installation](#installation)
-- 🛠️[Development Installation](#development-installation)
-- 📜[License](#license)
+- [Introduction](#introduction)
+- [Features](#features)
+- [Usage](#usage)
+- [Installation](#installation)
+- [Development Installation](#development-installation)
+- [License](#license)
 
 
 ## 🖊️Introduction
@@ -80,7 +80,7 @@ If you don't have them, please install it by running these commands in you termi
 (protavision) $ pip install matplotlib
 ```
 
-## 🛠️ Development installation
+## 🛠️ Development Installation
 
 Initialize Git (only for the first time). 
 
