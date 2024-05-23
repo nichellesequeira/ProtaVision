@@ -6,7 +6,7 @@
 :caption: 'Contents:'
 :maxdepth: 2
 api/modules.rst
-
+```
 
 # Indices and tables
 
