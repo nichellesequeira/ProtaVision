@@ -5,7 +5,7 @@
 ```{toctree}
 :caption: 'Contents:'
 :maxdepth: 2
-api/modules.rst
+api/modules
 ```
 
 # Indices and tables
