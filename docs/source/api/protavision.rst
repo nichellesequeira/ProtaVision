@@ -4,10 +4,18 @@ protavision package
 Submodules
 ----------
 
-protavision.example\_module module
-----------------------------------
+protavision.function\_main module
+---------------------------------
 
-.. automodule:: protavision.example_module
+.. automodule:: protavision.function_main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+protavision.functions module
+----------------------------
+
+.. automodule:: protavision.functions
    :members:
    :undoc-members:
    :show-inheritance:

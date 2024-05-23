@@ -1,5 +1,12 @@
 from Bio import SeqIO
 from Bio import ExPASy
+import pandas as pd
+import matplotlib.pyplot as plt
+from Bio.SeqUtils.ProtParam import ProteinAnalysis
+from Bio import SwissProt
+from Bio import pairwise2
+
+
 def get_protein_sequence(protein_name):
     """
     Retrieve the protein sequence from the ExPASy database using the provided protein name.
@@ -29,10 +36,6 @@ def get_protein_sequence(protein_name):
     return str(record.seq)
  
 
-
-
-
-import pandas as pd
 def compare_sequences(sequence1, sequence2):
     """
     Compare two amino acid sequences and return a DataFrame with differences.
@@ -81,8 +84,6 @@ def compare_sequences(sequence1, sequence2):
 
 
 
-import matplotlib.pyplot as plt
-from Bio.SeqUtils.ProtParam import ProteinAnalysis
 def proportion_amino_acid(sequence1, sequence2):
     """
     Compare two amino acid sequences and generate a bar plot showing the proportion of each amino acid.
@@ -132,7 +133,31 @@ def proportion_amino_acid(sequence1, sequence2):
 
 
 def count_conservative_substitutions(sequence1, sequence2):
-    # Définir la matrice de conservation directement dans la fonction
+    """
+    Count the number of conservative substitutions between two protein sequences.
+
+    Conservative substitutions are defined based on a predefined conservation matrix,
+    which lists amino acids that can be substituted for each other without significantly 
+    affecting the protein's function.
+
+    Args:
+        sequence1 (str): The first protein sequence.
+        sequence2 (str): The second protein sequence.
+
+    Returns:
+        int: The number of conservative substitutions between the two sequences.
+
+    Raises:
+        ValueError: If the input sequences are not of the same length.
+
+    Example:
+        >>> seq1 = "ANQHRQ"
+        >>> seq2 = "LMANPR"
+        >>> count_conservative_substitutions(seq1, seq2)
+        2
+
+    """
+    # Define the conservation matrix directly in the functio
     conservation_matrix = {
         'C': {'A'},  # Cysteine
         'S': {'T', 'A', 'G', 'N', 'D', 'E', 'Q', 'K'},  # Serine
@@ -156,16 +181,16 @@ def count_conservative_substitutions(sequence1, sequence2):
         'W': {'F', 'Y'},  # Tryptophan
     }
 
-    # Assurez-vous que les deux séquences ont la même longueur
+    # Make sure both sequences have the same length
     if len(sequence1) != len(sequence2):
         raise ValueError("Les séquences doivent avoir la même longueur!")
 
-    # Nombre de substitutions conservatrices
+    # Number of conservative substitutions
     conserv_substitutions = 0
 
-    # Parcourir les deux séquences simultanément et comparer les acides aminés
+    # Run both sequences simultaneously and compare amino acids
     for aa1, aa2 in zip(sequence1, sequence2):
-        # Vérifier si les acides aminés peuvent être substitués de manière conservatrice
+        # Check whether amino acids can be conservatively substituted
         if aa2 in conservation_matrix.get(aa1, set()):
             conserv_substitutions += 1
 
@@ -173,28 +198,42 @@ def count_conservative_substitutions(sequence1, sequence2):
 
 
 
-
-from Bio import ExPASy
-from Bio import SwissProt
-
 def uniprot_to_pdb(uniprot_id):
-    # Rechercher les informations UniProt pour l'ID UniProt donné
+    """
+    Retrieve the PDB code associated with a given UniProt ID.
+
+    This function searches for UniProt information for the given UniProt ID using the ExPASy database,
+    extracts the PDB codes associated with the UniProt sequence, and returns the first PDB code found.
+
+    Args:
+        uniprot_id (str): The UniProt ID of the protein.
+
+    Returns:
+        str or None: The first PDB code associated with the given UniProt ID, or None if no PDB code is found.
+
+    Example:
+        >>> uniprot_to_pdb("MYG_HUMAN")
+        '3RGK'
+
+    Raises:
+        Exception: If there is an issue retrieving or parsing the UniProt record.
+
+    """
+
+    # Search for UniProt information for the given UniProt ID
     handle = ExPASy.get_sprot_raw(uniprot_id)
     record = SwissProt.read(handle)
 
-    # Récupérer le code PDB associé à la séquence UniProt
+    # Retrieve the PDB code associated with the UniProt sequence
     pdb_ids = [ref[1] for ref in record.cross_references if ref[0] == 'PDB']
     if pdb_ids:
-        # Sélectionner le premier code PDB dans la liste des codes PDB associés à la protéine UniProt
+        # Select the first PDB code from the list of PDB codes associated with the UniProt protein.
         pdb_id = pdb_ids[0]
         return pdb_id
     else:
         return None
 
 
-
-
-from Bio import pairwise2
 
 def calculate_alignment_details(sequence1, sequence2):
     """
@@ -267,13 +306,33 @@ def count_matches_with_gap(sequence1, sequence2, gap_length, position):
     return count
 
 def count_amino_acids(sequence):
-    # Définition des catégories d'acides aminés
-    hydrophobes = "AVILMFYW"
-    hydrophiles = "NCQST"
-    acides = "DE"
-    basiques = "KRH"
+    """
+    Count the number of amino acids in different categories within a given sequence.
 
-    # Initialisation des compteurs
+    This function categorizes amino acids into hydrophobic, hydrophilic, acidic, and basic groups,
+    then counts the occurrences of each category in the provided amino acid sequence.
+
+    Args:
+        sequence (str): The amino acid sequence to be analyzed.
+
+    Returns:
+        dict: A dictionary with the counts of amino acids in each category:
+            - "hydrophobes": Hydrophobic amino acids (A, V, I, L, M, F, Y, W)
+            - "hydrophiles": Hydrophilic amino acids (N, C, Q, S, T)
+            - "acides": Acidic amino acids (D, E)
+            - "basiques": Basic amino acids (K, R, H)
+
+    Example:
+        >>> count_amino_acids("MVHLTPEEK")
+        {'hydrophobics': 3, 'hydrophiles': 1, 'acids': 2, 'bases': 2}
+    """
+    # Definition of amino acid categories
+    hydrophobics = "AVILMFYW"
+    hydrophiles = "NCQST"
+    acids = "DE"
+    bases = "KRH"
+
+    # Counter initialization
     counts = {
         "hydrophobes": 0,
         "hydrophiles": 0,
@@ -281,7 +340,7 @@ def count_amino_acids(sequence):
         "basiques": 0
     }
 
-    # Parcours de la séquence et comptage des acides aminés
+    # Amino acid sequence and count
     for aa in sequence.upper():
         if aa in hydrophobes:
             counts["hydrophobes"] += 1

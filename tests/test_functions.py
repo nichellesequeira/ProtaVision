@@ -1,6 +1,6 @@
 import pytest
 from protavision.functions import get_protein_sequence, compare_sequences, proportion_amino_acid, count_conservative_substitutions, uniprot_to_pdb, calculate_alignment_details, calculate_number_of_gaps, count_matches_with_gap, count_amino_acids
-import matplotlib
+import matplotlib.pyplot as plt
 
 def test_get_protein_sequence_success_myoh():
     protein_name = 'MYG_HUMAN'
