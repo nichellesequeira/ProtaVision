@@ -14,7 +14,7 @@ ProtaVision: Delving into Protein Structures and Functions
 
 ## Table of Contents
 
-- 🖊️[Introduction](#Introduction)
+- 🖊️[Introduction](#🖊️introduction)
 - 🎨[Features](#features)
 - 🔥[Usage](#usage)
 - 👩‍💻[Installation](#installation)
