@@ -1,7 +1,6 @@
-protavision
+.. _protavision:
+
+Protavision
 ===========
 
-.. toctree::
-   :maxdepth: 4
-
-   protavision
+Detailed documentation about Protavision.
