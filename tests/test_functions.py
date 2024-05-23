@@ -1,6 +1,6 @@
 import pytest
 from protavision.functions import get_protein_sequence, compare_sequences, proportion_amino_acid, count_conservative_substitutions, uniprot_to_pdb, calculate_alignment_details, calculate_number_of_gaps, count_matches_with_gap, count_amino_acids
-import matplotlib
+import matplotlib.pyplot as plt
 
 def test_get_protein_sequence_success_myoh():
     protein_name = 'MYG_HUMAN'
@@ -184,10 +184,10 @@ def test_count_amino_acids_success():
     sequence = "MVHLTPEEK"
     counts = count_amino_acids(sequence)
     expected_counts = {
-        "hydrophobes": 3,
+        "hydrophobics": 3,
         "hydrophiles": 1,
-        "acides": 2,
-        "basiques":2
+        "acids": 2,
+        "bases":2
     }
     assert counts == expected_counts
 
