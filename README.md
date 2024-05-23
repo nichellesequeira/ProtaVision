@@ -13,12 +13,12 @@ ProtaVision: Delving into Protein Structures and Functions
 #### Practical Programming in Chemistry @ EPFL
 
 ## Table of Contents
-- 🖊️[Introduction](#introduction)
+- 🖊️:[Introduction](#pen-introduction)
 - 🎨[Features](#features)
-- 🔥[Usage](#usage)
-- 👩‍💻[Installation](#installation)
-- 🛠️[Development Installation](#development-installation)
-- 📜[License](#license)
+- 🔥[Usage](#fire-usage)
+- 💻[Installation](#computer-installation)
+- 🔨[Development Installation](#hammer-development-installation)
+- 📰[License](#newspaper-license)
 
 ## 🖊️Introduction
 
@@ -48,7 +48,7 @@ This usage example shows how to quickly leverage the package's main functionalit
 After importing the `main_func` (to be renamed by you), you simply pass in your `data` and get the `result` (this is just an example, your package might have other inputs and outputs). 
 Short and sweet, but the real power lies in the detailed documentation.
 
-## 👩‍💻 Installation
+## 💻 Installation
 
 Create a new environment, you may also give the environment a different name. 
 
@@ -78,7 +78,7 @@ If you don't have them, please install it by running these commands in you termi
 (protavision) $ pip install matplotlib
 ```
 
-## 🛠️ Development Installation
+## 🔨 Development Installation
 
 Initialize Git (only for the first time). 
 
@@ -109,7 +109,7 @@ To install the package, run
 (conda_env) $ tox
 ```
 
-## 📜 License
+## 📰 License
 This project is licensed under the MIT License. The MIT License is a permissive open source license that allows you to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, subject to certain conditions.
 
 You are provided with a copy of the MIT License in the [LICENSE](LICENSE) file accompanying this repository. By using, copying, modifying, distributing, or selling this software, you agree to the terms and conditions of the MIT License.
