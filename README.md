@@ -14,6 +14,7 @@ ProtaVision: Delving into Protein Structures and Functions
 
 ## Table of Contents
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 - :pen:[Introduction](#pen-introduction)
 - 🎨[Features](#features)
@@ -29,6 +30,14 @@ ProtaVision: Delving into Protein Structures and Functions
 - 🛠️[Development Installation](#development-installation)
 - 📜[License](#license)
 >>>>>>> dd1c4287b4189e770752e0987ea43aed95aa93f6
+=======
+- 🖊️:[Introduction](#pen-introduction)
+- 🎨[Features](#features)
+- 🔥[Usage](#fire-usage)
+- 💻[Installation](#computer-installation)
+- 🔨[Development Installation](#hammer-development-installation)
+- 📰[License](#newspaper-license)
+>>>>>>> fc0c30539dff4b39dcf74d6a270e687b681ec3f8
 
 ## :pen: Introduction
 
@@ -58,7 +67,11 @@ This usage example shows how to quickly leverage the package's main functionalit
 After importing the `main_func` (to be renamed by you), you simply pass in your `data` and get the `result` (this is just an example, your package might have other inputs and outputs). 
 Short and sweet, but the real power lies in the detailed documentation.
 
+<<<<<<< HEAD
 ## :computer: Installation
+=======
+## 💻 Installation
+>>>>>>> fc0c30539dff4b39dcf74d6a270e687b681ec3f8
 
 Create a new environment, you may also give the environment a different name. 
 
@@ -89,10 +102,14 @@ If you don't have them, please install it by running these commands in you termi
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## :hammer: Development installation
 =======
 ## 🛠️ Development Installation
 >>>>>>> dd1c4287b4189e770752e0987ea43aed95aa93f6
+=======
+## 🔨 Development Installation
+>>>>>>> fc0c30539dff4b39dcf74d6a270e687b681ec3f8
 
 Initialize Git (only for the first time). 
 
@@ -123,7 +140,11 @@ To install the package, run
 (conda_env) $ tox
 ```
 
+<<<<<<< HEAD
 ## :paper: License
+=======
+## 📰 License
+>>>>>>> fc0c30539dff4b39dcf74d6a270e687b681ec3f8
 This project is licensed under the MIT License. The MIT License is a permissive open source license that allows you to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, subject to certain conditions.
 
 You are provided with a copy of the MIT License in the [LICENSE](LICENSE) file accompanying this repository. By using, copying, modifying, distributing, or selling this software, you agree to the terms and conditions of the MIT License.
