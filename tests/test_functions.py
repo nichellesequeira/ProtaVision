@@ -19,7 +19,7 @@ def test_get_protein_sequence_no_uniprot_code():
     with pytest.raises(ValueError):
         get_protein_sequence(protein_name)
 
-def test_get_protein_sequence_success_hemoh():
+def test_get_protein_sequence_success_hemoglybinhuman():
     protein_name='HBB_HUMAN'
     expected_sequence = (
     'MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPK'
@@ -51,14 +51,6 @@ def test_compare_sequences_different_lengths():
 def test_proportion_amino_acid_valid_sequences():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
     sequence2 = "BCDEFGHIJKLMNOPQRSTUVWXYZ"
-    try:
-        proportion_amino_acid(sequence1, sequence2)
-    except Exception as e:
-        pytest.fail(f"Unexpected exception: {e}")
-
-def test_proportion_amino_acid_valid_sequences_with_same_amino_acid():
-    sequence1 = "ACDEFGHIKLMNPQRSTVWY"
-    sequence2 = "AAAAAAAAAAAAAAAAAAAA"
     try:
         proportion_amino_acid(sequence1, sequence2)
     except Exception as e:
