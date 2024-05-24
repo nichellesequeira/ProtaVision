@@ -56,6 +56,14 @@ def test_proportion_amino_acid_valid_sequences():
     except Exception as e:
         pytest.fail(f"Unexpected exception: {e}")
 
+<<<<<<< HEAD
+=======
+def test_proportion_amino_acid_valid_sequences_with_same_amino_acid():
+    sequence1 = "ACDEFGHIKLMNPQRSTVWY"
+    sequence2 = "AAAAAAAAAAAAAAAAAAAA"
+    proportion_amino_acid(sequence1, sequence2)
+
+>>>>>>> a79d66de82a31b0aec2cc565b8d33d50ca5860a0
 def test_count_conservative_substitutions_none():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
     sequence2 = "ACDEFGHIKLMNPQRSTVWY"
