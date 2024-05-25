@@ -84,6 +84,9 @@ def compare_sequences(sequence1, sequence2):
 
 
 
+import matplotlib.pyplot as plt
+import numpy as np
+
 def proportion_amino_acid(sequence1, sequence2):
     """
     Compare two amino acid sequences and generate a bar plot showing the proportion of each amino acid.
@@ -107,19 +110,23 @@ def proportion_amino_acid(sequence1, sequence2):
     counts1 = analyzed_seq1.count_amino_acids()
     counts2 = analyzed_seq2.count_amino_acids()
 
-    # Plotting
-    fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+    # Extract amino acids and counts for each sequence
+    amino_acids1, counts_seq1 = zip(*counts1.items())
+    amino_acids2, counts_seq2 = zip(*counts2.items())
+
+    # Set up the figure and axis
+    fig, axes = plt.subplots(2, 1, figsize=(12, 12))
 
     # Plot for sequence 1
     ax1 = axes[0]
-    ax1.bar(counts1.keys(), counts1.values(), color='blue')
+    ax1.bar(amino_acids1, counts_seq1, color='blue')
     ax1.set_title('Amino Acid Proportions - Sequence 1')
     ax1.set_xlabel('Amino Acid')
     ax1.set_ylabel('Count')
 
     # Plot for sequence 2
     ax2 = axes[1]
-    ax2.bar(counts2.keys(), counts2.values(), color='red')
+    ax2.bar(amino_acids2, counts_seq2, color='red')
     ax2.set_title('Amino Acid Proportions - Sequence 2')
     ax2.set_xlabel('Amino Acid')
     ax2.set_ylabel('Count')
@@ -127,6 +134,7 @@ def proportion_amino_acid(sequence1, sequence2):
     # Adjust layout
     plt.tight_layout()
     plt.show()
+
 
 
 

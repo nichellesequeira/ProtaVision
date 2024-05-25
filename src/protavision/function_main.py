@@ -7,6 +7,8 @@ def main() :
     sys.path.append("../src")
     from protavision import functions
     import matplotlib.pyplot as plt
+    import py3Dmol
+    from Bio import pairwise2
     
     protein_name1 = input("Please enter the name of the first protein (example MYG_HUMAN): ")
     
@@ -20,7 +22,6 @@ def main() :
 
     
     df = functions.compare_sequences(sequence1, sequence2)
-    
     df
     
     analyzed_seq1 = ProteinAnalysis(str(sequence1))
@@ -30,7 +31,6 @@ def main() :
     molecular_weight2 = round(analyzed_seq2.molecular_weight(), 3)
     
     
-    # Print the molecular weight using an f-string
     
     print(f"The molecular weight of your first amino acid sequence is: {molecular_weight1} g/mol")
     print()
@@ -41,6 +41,20 @@ def main() :
 
     num_conserv_substitutions = functions.count_conservative_substitutions(sequence1, sequence2)
     print("The number of conservative substitutions :", num_conserv_substitutions)
+
+    counts_1rsprotein = functions.count_amino_acids(sequence1)
+    print(f"Séquence : {sequence1}")
+    print("Number of hydrophobic amino acids :", counts_1rsprotein["hydrophobics"])
+    print("Number of hydrophilic amino acids  :", counts_1rsprotein["hydrophiles"])
+    print("Number of acidic amino acids :", counts_1rsprotein["acids"])
+    print("Number of basic amino acids  :", counts_1rsprotein["bases"])
+
+    counts_2ndprotein = functions.count_amino_acids(sequence2)
+    print(f"Séquence : {sequence2}")
+    print("Number of hydrophobic amino acids :", counts_2ndprotein["hydrophobics"])
+    print("Number of hydrophilic amino acids  :", counts_2ndprotein["hydrophiles"])
+    print("Number of acidic amino acids :", counts_2ndprotein["acids"])
+    print("Number of basic amino acids  :", counts_2ndprotein["bases"])
 
     pdb_id1 = functions.uniprot_to_pdb(protein_name1)
     if pdb_id1:
@@ -53,8 +67,7 @@ def main() :
         print(f"The PDB code of the second protein {protein_name2} is : {pdb_id2}")
     else:
         print(f"No PDB code is associated to the second protein {protein_name2}")
-
-    import py3Dmol #install package py3Dmol is required
+ 
     
     view = py3Dmol.view(query=pdb_id1)
     
@@ -62,7 +75,6 @@ def main() :
     
     view
 
-    import py3Dmol #install package py3Dmol is required
     
     view = py3Dmol.view(query=pdb_id2)
     
@@ -70,7 +82,6 @@ def main() :
     
     view
 
-    from Bio import pairwise2
     
     sequence1_aligned, sequence2_aligned, begin, end, num_matches = functions.calculate_alignment_details(sequence1, sequence2)
     num_gaps_sequence1 = functions.calculate_number_of_gaps(sequence1_aligned, sequence1)
@@ -90,35 +101,7 @@ def main() :
     num_matches = functions.count_matches_with_gap(sequence1, sequence2, gap_length, position)
     print("Number of matches found with the gap method is:", num_matches)
 
-    import os
-    import ast
-    import pandas as pd
-    import matplotlib.pyplot as plt
     
-    # Determine the path to the aminoacids.txt file
-    current_dir = os.path.dirname(os.path.abspath('__file__'))
-    project_root = os.path.dirname(current_dir)
-    file_path = os.path.join(project_root, 'data', 'aminoacids.txt')
-    
-    # Read the amino acids data from the file
-    with open(file_path, 'r') as file:
-        data = file.read().strip()
-        amino_acids = ast.literal_eval(data)
-    
-    # Create a DataFrame
-    df = pd.DataFrame(amino_acids)
-    
-    # Display the DataFrame
-    print("Amino Acid Data:")
-    display(df)
-    
-    counts_1rsprotein = functions.count_amino_acids(sequence1)
-    counts_2ndprotein = functions.count_amino_acids(sequence2)
-    print(f"Séquence : {sequence1}")
-    print("Number of hydrophobic amino acids :", counts_1rsprotein["hydrophobes"])
-    print("Number of hydrophilic amino acids  :", counts_1rsprotein["hydrophiles"])
-    print("Number of acidic amino acids :", counts_1rsprotein["acides"])
-    print("Number of basic amino acids  :", counts_1rsprotein["basiques"])
 
     return
 
