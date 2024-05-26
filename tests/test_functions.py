@@ -56,10 +56,15 @@ def test_proportion_amino_acid_valid_sequences():
     except Exception as e:
         pytest.fail(f"Unexpected exception: {e}")
 
-def test_proportion_amino_acid_valid_sequences_with_same_amino_acid():
+
+def test_proportion_amino_acid_valid_sequences_same_amino_acid():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
     sequence2 = "AAAAAAAAAAAAAAAAAAAA"
+    
     proportion_amino_acid(sequence1, sequence2)
+    
+    fig = plt.gcf() 
+    assert fig is not None, "Aucun graphique n'a été généré"
 
 def test_count_conservative_substitutions_none():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
