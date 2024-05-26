@@ -20,7 +20,7 @@ def test_get_protein_sequence_no_uniprot_code():
     with pytest.raises(ValueError):
         get_protein_sequence(protein_name)
 
-def test_get_protein_sequence_success_hemoh():
+def test_get_protein_sequence_success_hemoglobinhuman():
     protein_name='HBB_HUMAN'
     expected_sequence = (
     'MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPK'
@@ -50,6 +50,7 @@ def test_compare_sequences_different_lengths():
         compare_sequences(sequence1, sequence2)
 
 
+<<<<<<< HEAD
 
 def test_proportion_amino_acid_valid_sequences_same_amino_acid():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
@@ -63,6 +64,8 @@ def test_proportion_amino_acid_valid_sequences_same_amino_acid():
 
 
 
+=======
+>>>>>>> 948fbf94fad0bf81db8491aeb16fe0cc669c4a63
 def test_count_conservative_substitutions_none():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
     sequence2 = "ACDEFGHIKLMNPQRSTVWY"
