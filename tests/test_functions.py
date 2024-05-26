@@ -50,22 +50,7 @@ def test_compare_sequences_different_lengths():
         compare_sequences(sequence1, sequence2)
 
 
-<<<<<<< HEAD
 
-def test_proportion_amino_acid_valid_sequences_same_amino_acid():
-    sequence1 = "ACDEFGHIKLMNPQRSTVWY"
-    sequence2 = "AAAAAAAAAAAAAAAAAAAA"
-    
-    proportion_amino_acid(sequence1, sequence2)
-    
-    fig = plt.gcf() 
-    assert fig is not None, "Aucun graphique n'a été généré"
-
-
-
-
-=======
->>>>>>> 948fbf94fad0bf81db8491aeb16fe0cc669c4a63
 def test_count_conservative_substitutions_none():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
     sequence2 = "ACDEFGHIKLMNPQRSTVWY"
