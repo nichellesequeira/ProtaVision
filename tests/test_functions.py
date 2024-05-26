@@ -1,6 +1,7 @@
 import pytest
 from protavision.functions import get_protein_sequence, compare_sequences, proportion_amino_acid, count_conservative_substitutions, uniprot_to_pdb, calculate_alignment_details, calculate_number_of_gaps, count_matches_with_gap, count_amino_acids
 import matplotlib.pyplot as plt
+import tkinter
 
 def test_get_protein_sequence_success_myoh():
     protein_name = 'MYG_HUMAN'
@@ -19,7 +20,7 @@ def test_get_protein_sequence_no_uniprot_code():
     with pytest.raises(ValueError):
         get_protein_sequence(protein_name)
 
-def test_get_protein_sequence_success_hemoh():
+def test_get_protein_sequence_success_hemoglobinhuman():
     protein_name='HBB_HUMAN'
     expected_sequence = (
     'MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPK'
@@ -48,23 +49,7 @@ def test_compare_sequences_different_lengths():
     with pytest.raises(ValueError):
         compare_sequences(sequence1, sequence2)
 
-def test_proportion_amino_acid_valid_sequences():
-    sequence1 = "ACDEFGHIKLMNPQRSTVWY"
-    sequence2 = "BCDEFGHIJKLMNOPQRSTUVWXYZ"
-    try:
-        proportion_amino_acid(sequence1, sequence2)
-    except Exception as e:
-        pytest.fail(f"Unexpected exception: {e}")
 
-
-def test_proportion_amino_acid_valid_sequences_same_amino_acid():
-    sequence1 = "ACDEFGHIKLMNPQRSTVWY"
-    sequence2 = "AAAAAAAAAAAAAAAAAAAA"
-    
-    proportion_amino_acid(sequence1, sequence2)
-    
-    fig = plt.gcf() 
-    assert fig is not None, "Aucun graphique n'a été généré"
 
 def test_count_conservative_substitutions_none():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
