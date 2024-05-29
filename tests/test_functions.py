@@ -2,6 +2,8 @@ import pytest
 from protavision.functions import get_protein_sequence, compare_sequences, proportion_amino_acid, count_conservative_substitutions, uniprot_to_pdb, calculate_alignment_details, calculate_number_of_gaps, count_matches_with_gap, count_amino_acids
 import matplotlib.pyplot as plt
 import tkinter
+import matplotlib
+matplotlib.use('Agg')
 
 def test_get_protein_sequence_success_myoh():
     protein_name = 'MYG_HUMAN'
@@ -49,15 +51,27 @@ def test_compare_sequences_different_lengths():
     with pytest.raises(ValueError):
         compare_sequences(sequence1, sequence2)
 
-def test_proportion_amino_acid():
+def test_proportion_amino_acid_not_same_sequence():
     sequence1 = "MENFQKVEKIGEGTYGVVYKARNKLTGEVVALKKIRLDTRFANQAFGSYEGPRYLKLYLMEQKLTTEEREKKAA"
     sequence2 = "MENSDSKSSFFEVFKSNSSKSDKEKKEKDEEKSKKDDKKK"
-    
-    # Run the function and ensure no exceptions are raised
     proportion_amino_acid(sequence1, sequence2)
     
-    # If no exception is raised, the test will pass
     assert True
+
+def test_proportion_amino_acid_same_length():
+    sequence1= "ACDEFGHIKLMNPQRSTVWY"
+    sequence2= "MENSDSKSSFFEVFKSNWYT"
+    proportion_amino_acid(sequence1, sequence2)
+
+    assert True
+
+def test_proportion_amino_acid_same_amino_acids():
+    sequence1="AAAA"
+    sequence2="AAAA"
+    proportion_amino_acid(sequence1, sequence2)
+
+    assert True
+    
 
 
 def test_count_conservative_substitutions_none():
@@ -76,10 +90,36 @@ def test_count_conservative_substitutions_value2():
     sequence2 = "LMANPR"
     assert count_conservative_substitutions(sequence1, sequence2) == 2
 
+def test_count_conservative_substitutions_one_amino_acid():
+    sequence1 = "T"
+    sequence2 = "A"
+    assert count_conservative_substitutions(sequence1, sequence2) == 1
+
 
 def test_uniprot_to_pdb_valid_id_mygh():
     uniprot_id = "MYG_HUMAN"
     expected_pdb_id = "3RGK"  
+    try:
+        pdb_id = uniprot_to_pdb(uniprot_id)
+        assert pdb_id == expected_pdb_id
+    except Exception as e:
+        pytest.fail(f"Unexpected exception: {e}")
+
+def test_uniprot_to_pdb_invalid_id():
+    uniprot_id = "INVALID_UNIPROT_ID"
+    expected_exception = Exception
+    
+    try:
+        pdb_id = uniprot_to_pdb(uniprot_id)
+        pytest.fail(f"Expected exception {expected_exception} but got result: {pdb_id}")
+    except expected_exception:
+        pass 
+    except Exception as e:
+        pytest.fail(f"Unexpected exception: {e}")
+    
+def test_uniprot_to_pdb_valid_id_insulin():
+    uniprot_id = "INSR_HUMAN"
+    expected_pdb_id = "1GAG"  
     try:
         pdb_id = uniprot_to_pdb(uniprot_id)
         assert pdb_id == expected_pdb_id
@@ -140,6 +180,13 @@ def test_calculate_number_of_gaps_no_gaps():
     expected_num_gaps = 0
     assert num_gaps == expected_num_gaps
 
+def test_calculate_number_of_gaps_beginning_sequence():
+    sequence_aligned = "-ACD"
+    sequence_original = "ACD"
+    num_gaps = calculate_number_of_gaps(sequence_aligned, sequence_original)
+    expected_num_gaps = 1
+    assert num_gaps == expected_num_gaps
+
 
 def test_count_matches_with_gap_no_gap():
     sequence1 = "ACDEFGHIKLMNPQRSTVWY"
@@ -187,4 +234,25 @@ def test_count_amino_acids_success():
     }
     assert counts == expected_counts
 
+def test_count_amino_acids_zero_of_expected_counts():
+    sequence = "PPPPPPPPP"
+    counts = count_amino_acids(sequence)
+    expected_counts = {
+        "hydrophobics": 0,
+        "hydrophiles": 0,
+        "acids": 0,
+        "bases":0
+    }
+    assert counts == expected_counts
+
+def test_count_amino_acids_only_one_amino_acid():
+    sequence = "M"
+    counts = count_amino_acids(sequence)
+    expected_counts = {
+        "hydrophobics": 1,
+        "hydrophiles": 0,
+        "acids": 0,
+        "bases":0
+    }
+    assert counts == expected_counts
 
