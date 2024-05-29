@@ -89,7 +89,7 @@ import numpy as np
 
 def proportion_amino_acid(sequence1, sequence2):
     """
-    Compare two amino acid sequences and generate a bar plot showing the proportion of each amino acid.
+    Compare two amino acid sequences and generate a bar chart showing the proportion of each amino acid.
 
     Parameters
     ----------
@@ -102,38 +102,35 @@ def proportion_amino_acid(sequence1, sequence2):
     -------
     None
     """
-    # Analyze sequences
+ 
     analyzed_seq1 = ProteinAnalysis(sequence1)
     analyzed_seq2 = ProteinAnalysis(sequence2)
 
-    # Get amino acid counts
+
     counts1 = analyzed_seq1.count_amino_acids()
     counts2 = analyzed_seq2.count_amino_acids()
 
-    # Extract amino acids and counts for each sequence
-    amino_acids1, counts_seq1 = zip(*counts1.items())
-    amino_acids2, counts_seq2 = zip(*counts2.items())
+  
+    fig, axes = plt.subplots(1, 2, figsize=(12, 6))
 
-    # Set up the figure and axis
-    fig, axes = plt.subplots(2, 1, figsize=(12, 12))
-
-    # Plot for sequence 1
+ 
     ax1 = axes[0]
-    ax1.bar(amino_acids1, counts_seq1, color='blue')
-    ax1.set_title('Amino Acid Proportions - Sequence 1')
-    ax1.set_xlabel('Amino Acid')
-    ax1.set_ylabel('Count')
+    ax1.bar(counts1.keys(), counts1.values(), color='blue')
+    ax1.set_title('Proportions des acides aminés - Séquence 1')
+    ax1.set_xlabel('Acide aminé')
+    ax1.set_ylabel('Nombre')
 
-    # Plot for sequence 2
     ax2 = axes[1]
-    ax2.bar(amino_acids2, counts_seq2, color='red')
-    ax2.set_title('Amino Acid Proportions - Sequence 2')
-    ax2.set_xlabel('Amino Acid')
-    ax2.set_ylabel('Count')
+    ax2.bar(counts2.keys(), counts2.values(), color='red')
+    ax2.set_title('Proportions des acides aminés - Séquence 2')
+    ax2.set_xlabel('Acide aminé')
+    ax2.set_ylabel('Nombre')
 
-    # Adjust layout
+ 
     plt.tight_layout()
     plt.show()
+
+
 
 
 
