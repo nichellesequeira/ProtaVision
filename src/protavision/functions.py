@@ -116,15 +116,15 @@ def proportion_amino_acid(sequence1, sequence2):
  
     ax1 = axes[0]
     ax1.bar(counts1.keys(), counts1.values(), color='blue')
-    ax1.set_title('Proportions des acides aminés - Séquence 1')
-    ax1.set_xlabel('Acide aminé')
-    ax1.set_ylabel('Nombre')
+    ax1.set_title('Proportions of amino acids - Sequence 1')
+    ax1.set_xlabel('Amino Acid')
+    ax1.set_ylabel('Number')
 
     ax2 = axes[1]
     ax2.bar(counts2.keys(), counts2.values(), color='red')
-    ax2.set_title('Proportions des acides aminés - Séquence 2')
-    ax2.set_xlabel('Acide aminé')
-    ax2.set_ylabel('Nombre')
+    ax2.set_title('Proportions of amino acids - Sequence 2')
+    ax2.set_xlabel('Amino Acid')
+    ax2.set_ylabel('Number')
 
  
     plt.tight_layout()
@@ -188,7 +188,7 @@ def count_conservative_substitutions(sequence1, sequence2):
 
     # Make sure both sequences have the same length
     if len(sequence1) != len(sequence2):
-        raise ValueError("Les séquences doivent avoir la même longueur!")
+        raise ValueError("The sequences have to be of same length!")
 
     # Number of conservative substitutions
     conserv_substitutions = 0
