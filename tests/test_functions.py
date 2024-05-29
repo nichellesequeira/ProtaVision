@@ -49,6 +49,15 @@ def test_compare_sequences_different_lengths():
     with pytest.raises(ValueError):
         compare_sequences(sequence1, sequence2)
 
+def test_proportion_amino_acid():
+    sequence1 = "MENFQKVEKIGEGTYGVVYKARNKLTGEVVALKKIRLDTRFANQAFGSYEGPRYLKLYLMEQKLTTEEREKKAA"
+    sequence2 = "MENSDSKSSFFEVFKSNSSKSDKEKKEKDEEKSKKDDKKK"
+    
+    # Run the function and ensure no exceptions are raised
+    proportion_amino_acid(sequence1, sequence2)
+    
+    # If no exception is raised, the test will pass
+    assert True
 
 
 def test_count_conservative_substitutions_none():
